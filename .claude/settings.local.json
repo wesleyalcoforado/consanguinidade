@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s --max-time 5 \"https://npm.d.musta.ch/vite\")",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(pkill -f \"vite --port 5173\")",
+      "Bash(npx vite:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)"
+    ]
+  }
+}
