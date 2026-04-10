@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# Visualizador de dispensas segundo o Direito Canônico
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ferramenta interativa para visualização de heredogramas de consanguinidade, conforme as normas do Direito Canônico para concessão de dispensas matrimoniais.
 
-Currently, two official plugins are available:
+Parte do projeto [Genealogia do Ceará](https://www.genealogiadoceara.net).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## O que é
 
-## React Compiler
+No Direito Canônico, o casamento entre parentes consanguíneos é impedido até o quarto grau da linha colateral. Para que o matrimônio seja válido, é necessária uma dispensa eclesiástica. O grau de parentesco determina a dificuldade de obtenção dessa dispensa.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Esta ferramenta gera automaticamente o heredograma dos dois nubentes, destacando os ancestrais em comum e exibindo o texto canônico do impedimento correspondente.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Graus iguais**: 2º, 3º e 4º grau (primos carnais, segundos, terceiros)
+- **Graus atingentes**: 1º atingente ao 2º, 2º atingente ao 3º, 3º atingente ao 4º
+- **Multiplicidade**: de simples até septuplicado, conforme o grau
+- Heredograma combinado com os dois nubentes no mesmo diagrama
+- Ancestrais em comum destacados por cor
+- Edição de nomes nos nós — nomes espelhados automaticamente entre as árvores
+- Reposicionamento dos casais ancestrais compartilhados dentro da geração
+- Texto canônico do impedimento gerado automaticamente
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tecnologias
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React + TypeScript
+- Vite
+- Tailwind CSS v4
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Instalação e uso
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Acesse `http://localhost:5173` no navegador.
