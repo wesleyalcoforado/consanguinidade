@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+:root {
+  --font-title: 'Playfair Display', serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  --bg: hsl(37, 60%, 93%);
+  --bg-hover: hsl(38, 61%, 96%);
+  --bg-dark: hsl(40, 47%, 84%);
+  --on-bg-dark: hsl(35, 33%, 17%);
+  --bg-darker: hsl(35, 33%, 17%);
+  --on-bg-darker: hsl(0, 0%, 100%);
+
+  --surface: hsl(40, 69%, 97%);
+  --on-surface: hsl(35, 33%, 17%);
+  --container: hsl(0, 0%, 100%);
+  --on-container: hsl(35, 33%, 17%);
+
+  --primary: hsl(168, 21%, 33%);
+  --primary-hover: hsl(168, 21%, 38%);
+  --primary-active: hsl(168, 21%, 28%);
+  --on-primary: hsl(0, 0%, 100%);
+
+  --border: hsl(36, 20%, 60%);
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--on-surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-title);
+}

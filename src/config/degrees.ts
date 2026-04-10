@@ -44,5 +44,5 @@ export function getSharedCoupleLabel(index: number, groomGen: number, brideGen: 
   if (groomGen === brideGen) {
     return `${label} casal de ${GENERATION_LABELS[groomGen]} em comum`;
   }
-  return `${label} casal: ${GENERATION_LABELS[groomGen]} do noivo / ${GENERATION_LABELS[brideGen]} da noiva`;
+  return `${label} casal: ${GENERATION_LABELS[groomGen]} do nubente 1 / ${GENERATION_LABELS[brideGen]} do nubente 2`;
 }

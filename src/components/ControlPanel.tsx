@@ -27,19 +27,31 @@ export function ControlPanel({ type, degreeKey, multiplicity, onChange }: Props)
     onChange(type, degreeKey, newMult);
   }
 
+  const selectStyle: React.CSSProperties = {
+    border: '1px solid var(--border)',
+    borderRadius: '0.5rem',
+    padding: '0.5rem 0.75rem',
+    fontSize: '0.875rem',
+    background: 'var(--container)',
+    color: 'var(--on-container)',
+    outline: 'none',
+    cursor: 'pointer',
+    fontFamily: 'var(--font-body)',
+  };
+
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
-      <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+    <div className="rounded-xl p-4 shadow-sm" style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}>
+      <h2 className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--border)', fontFamily: 'var(--font-body)' }}>
         Configuração do Parentesco
       </h2>
       <div className="flex flex-wrap gap-4 items-end">
         {/* Tipo */}
         <div className="flex flex-col gap-1">
-          <label className="text-xs font-medium text-gray-600">Tipo</label>
+          <label className="text-xs font-medium" style={{ color: 'var(--on-surface)' }}>Tipo</label>
           <select
             value={type}
             onChange={e => handleTypeChange(e.target.value as RelationType)}
-            className="border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+            style={selectStyle}
           >
             <option value="igual">Grau Igual</option>
             <option value="atingente">Grau Atingente</option>
@@ -48,11 +60,11 @@ export function ControlPanel({ type, degreeKey, multiplicity, onChange }: Props)
 
         {/* Grau */}
         <div className="flex flex-col gap-1">
-          <label className="text-xs font-medium text-gray-600">Grau</label>
+          <label className="text-xs font-medium" style={{ color: 'var(--on-surface)' }}>Grau</label>
           <select
             value={degreeKey}
             onChange={e => handleDegreeChange(e.target.value as DegreeKey)}
-            className="border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+            style={selectStyle}
           >
             {degreesForType.map(d => (
               <option key={d.key} value={d.key}>{d.label}</option>
@@ -62,11 +74,11 @@ export function ControlPanel({ type, degreeKey, multiplicity, onChange }: Props)
 
         {/* Multiplicidade */}
         <div className="flex flex-col gap-1">
-          <label className="text-xs font-medium text-gray-600">Multiplicidade</label>
+          <label className="text-xs font-medium" style={{ color: 'var(--on-surface)' }}>Multiplicidade</label>
           <select
             value={multiplicity}
             onChange={e => handleMultiplicityChange(Number(e.target.value))}
-            className="border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+            style={selectStyle}
           >
             {Array.from({ length: maxMult }, (_, i) => i + 1).map(m => (
               <option key={m} value={m}>

@@ -11,8 +11,8 @@ export function Legend({ multiplicity, groomGen, brideGen }: Props) {
   if (multiplicity === 0) return null;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
-      <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+    <div className="rounded-xl p-4 shadow-sm" style={{ background: 'var(--surface)', border: '1px solid var(--border)' }}>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: 'var(--border)', fontFamily: 'var(--font-body)' }}>
         Casais Ancestrais em Comum
       </h3>
       <div className="flex flex-wrap gap-3">
@@ -22,7 +22,7 @@ export function Legend({ multiplicity, groomGen, brideGen }: Props) {
               className="w-4 h-4 rounded-sm flex-shrink-0"
               style={{ backgroundColor: SHARED_COLORS[i].bg }}
             />
-            <span className="text-xs text-gray-700">
+            <span className="text-xs" style={{ color: 'var(--on-surface)' }}>
               {getSharedCoupleLabel(i, groomGen, brideGen)}
             </span>
           </div>

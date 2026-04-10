@@ -60,7 +60,7 @@ export function getDispensationInfo(
       descricao: cousinName
         ? `Os nubentes são ${cousinName}.`
         : `Os nubentes possuem ${numAncestors} ${ancestorLabel} em comum.`,
-      ancestraisComuns: `${numAncestors} ${ancestorLabel} em comum (${multiplicity} casal${multiplicity > 1 ? 'ais' : ''})`,
+      ancestraisComuns: `${numAncestors} ${ancestorLabel} em comum (${multiplicity > 1 ? `${multiplicity} casais` : '1 casal'})`,
     };
   }
 
@@ -79,12 +79,12 @@ export function getDispensationInfo(
       descricao = 'Dois casais de avós de um dos nubentes são os mesmos dois casais de bisavós do outro.';
     }
   } else if (key === '3-4') {
-    descricao = `${multiplicity} casal${multiplicity > 1 ? 'ais' : ''} de bisavós de um dos nubentes é o mesmo que ${multiplicity} casal${multiplicity > 1 ? 'ais' : ''} de trisavós do outro.`;
+    descricao = `${multiplicity > 1 ? `${multiplicity} casais` : '1 casal'} de bisavós de um dos nubentes é o mesmo que ${multiplicity > 1 ? `${multiplicity} casais` : '1 casal'} de trisavós do outro.`;
   }
 
   return {
     impedimento: `Impedimento de consanguinidade no ${ordinal(groomGen)} grau atingente ao ${ordinal(brideGen)}${multSuffix}`,
     descricao: relationName ? `Relação: ${relationName}. ${descricao}` : descricao,
-    ancestraisComuns: `${multiplicity} casal${multiplicity > 1 ? 'ais' : ''} ancestral${multiplicity > 1 ? 'is' : ''} em comum`,
+    ancestraisComuns: `${multiplicity > 1 ? `${multiplicity} casais ancestrais` : '1 casal ancestral'} em comum`,
   };
 }
